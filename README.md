@@ -7,7 +7,7 @@ so, we will be considering an EMPTY image and Traffic road image, we will detect
 
 before applying the edge detection we will be doing various operations on images to get better edges.
 
-Firstly download the input images which u need to input for the code when u run it.
+Firstly download the input images which u need to input for the code when you run it.
 
 There are different functions which are used in this project, which are given in function folder.
 
