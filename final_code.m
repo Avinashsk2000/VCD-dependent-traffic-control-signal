@@ -1,7 +1,7 @@
 %%%%%%%%%%%% function files required to run final_code.m are %%%%%%%%%%%%%
 %%%%% gauss,dgauss,d2gauss,pltr,detedge,matchh %%%%%
 clc;
-%% imread
+%% imread  %%
 ref_image='EMPTY.jpeg';
 road1_image='FULL1.jpeg';
 road2_image='FULL1.jpeg';
@@ -26,7 +26,7 @@ title('LANE 3')
 subplot(2,2,4), imshow(road4_ima)
 title('LANE 4')
 
-%% gray filter and extraction of accuacy
+%% gray filter and extraction of accuacy %%
 ref_gray=rgb2gray(ref_ima);
 road1_gray=rgb2gray(road1_ima);
 road2_gray=rgb2gray(road2_ima);
@@ -45,7 +45,7 @@ subplot(2,2,4), imshow(road4_gray)
 title('RGB TO GRAY 4')
 
 
-%% double precision
+%% double precision %%
 ref_d=im2double(ref_gray);
 road1_d=im2double(road1_gray);
 road2_d=im2double(road2_gray);
@@ -53,7 +53,7 @@ road3_d=im2double(road3_gray);
 road4_d=im2double(road4_gray);
 
 
-%% setting the local standard resolution
+%% setting the local standard resolution %%
 ref_r = imresize(ref_d, [512 512]);
 road1_r = imresize(road1_d,[512 512]);
 road2_r = imresize(road2_d,[512 512]);
@@ -72,7 +72,7 @@ subplot(2,2,4), imshow(road4_r)
 title('RESIZE IMAGE 4')
 
 
-%% enhancing the images
+%% enhancing the images %%
 ref=pltr(ref_r);
 road1=pltr(road1_r);
 road2=pltr(road2_r);
@@ -80,7 +80,7 @@ road3=pltr(road3_r);
 road4=pltr(road4_r);
 
 
-%% edge detection
+%% edge detection %%
 ref_ng=detedge(ref);
 road1_ng=detedge(road1);
 road2_ng=detedge(road2);
@@ -107,7 +107,7 @@ BW3 = im2bw(road3_ng);
 BW4 = im2bw(road4_ng);
 
 
-%% match_values
+%% match_values %%
 match1=matchh(BW_r,BW1);
 match2=matchh(BW_r,BW2);
 match3=matchh(BW_r,BW3);
@@ -128,7 +128,7 @@ end
 
 
 %%%%%%%%%%Output Display%%%%%%%%%%
-%road1
+%road1 %
 disp('road1');
 if(match1>=236000 && match1<=240000)
   disp('Green signal will be displayed for 60 second');
@@ -140,8 +140,8 @@ else
   disp('Green signal will be displayed for 15 second');
   disp('Red signal will be displayed for 30 seconds');
 end
-
-%road2
+ 
+%road2 %
 disp('road2');
 if(match2>=236000 && match2<=240000)
   disp('Green signal will be displayed for 60 second');
@@ -154,7 +154,7 @@ else
   disp('Red signal will be displayed for 30 seconds');
 end
 
-%road3
+%road3 %
 disp('road3');
 if(match3>=236000 && match3<=240000)
   disp('Green signal will be displayed for 60 second');
@@ -167,7 +167,7 @@ else
   disp('Red signal will be displayed for 30 seconds');
 end
 
-% road4
+% road4 %
 disp('road4');
 if(match4>=236000 && match4<=240000)
   disp('Green signal will be displayed for 60 second');
